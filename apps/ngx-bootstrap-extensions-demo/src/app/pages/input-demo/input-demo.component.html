@@ -1,0 +1,18 @@
+<h1>Outside Form</h1>
+
+<bse-input id="input0" label="Input0" placeholder="Input1"></bse-input>
+
+<h1>Form Template</h1>
+
+<form #f=ngForm>
+  <bse-input id="input1" label="Input1" placeholder="Input1"
+             name="input1" [(ngModel)]="form1Model.input1"
+             #input1=ngModel required minlength="2"
+             maxlength="5"></bse-input>
+  <pre>input1.errors: {{input1.errors | json}}</pre>
+  <bse-input id="bseInput1" label="BseInput1" placeholder="BseInput1"
+             name="bseInput1" [(ngModel)]="form1Model.bseInput1"
+             #bseInput1=ngModel required minlength="2"
+             maxlength="5"></bse-input>
+  <pre>bseInput1.errors: {{bseInput1.errors | json}}</pre>
+</form>

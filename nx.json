@@ -29,6 +29,9 @@
     "ngx-bootstrap-extensions-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["ngx-bootstrap-extensions-demo"]
+    },
+    "ngx-bootstrap-extensions": {
+      "tags": []
     }
   }
 }

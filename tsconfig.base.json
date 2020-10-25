@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ngx-bootstrap-extensions/ngx-bootstrap-extensions": [
+        "libs/ngx-bootstrap-extensions/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

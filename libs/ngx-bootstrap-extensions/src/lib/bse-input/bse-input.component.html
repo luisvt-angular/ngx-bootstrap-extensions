@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label [for]="id + '-input'">{{label}}</label>
+  <input type="email" class="form-control"
+         [id]="id + '-input'"
+         [formControl]="formControl"
+         [required]="required"
+         [pattern]="pattern"
+         [type]="type"
+         [min]="min"
+         [max]="max"
+         [minlength]="minlength"
+         [maxlength]="maxlength"
+         [step]="step"
+         [autocomplete]="autocomplete"
+         [class.is-valid]="ngControl?.valid"
+         [class.is-invalid]="ngControl?.invalid">
+  <small [id]="id + '-help'" class="form-text text-muted">{{helpText}}</small>
+  <ul *ngIf="ngControl?.invalid" [id]="id + '-invalid-feedback'" class="invalid-feedback">
+    <li *ngFor="let error of getErrors(ngControl?.errors)">{{error}}</li>
+  </ul>
+</div>

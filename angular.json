@@ -25,7 +25,11 @@
               "apps/ngx-bootstrap-extensions-demo/src/favicon.ico",
               "apps/ngx-bootstrap-extensions-demo/src/assets"
             ],
-            "styles": ["apps/ngx-bootstrap-extensions-demo/src/styles.scss"],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "apps/ngx-bootstrap-extensions-demo/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -88,7 +92,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/ngx-bootstrap-extensions-demo/jest.config.js",
-            "passWithNoTests": true
+            "passWithNoTests": true,
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+            ]
           }
         }
       }
@@ -118,6 +126,46 @@
               "apps/ngx-bootstrap-extensions-demo-e2e/**/*.{js,ts}"
             ]
           }
+        }
+      }
+    },
+    "ngx-bootstrap-extensions": {
+      "projectType": "library",
+      "root": "libs/ngx-bootstrap-extensions",
+      "sourceRoot": "libs/ngx-bootstrap-extensions/src",
+      "prefix": "bse",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ngx-bootstrap-extensions/tsconfig.lib.json",
+            "project": "libs/ngx-bootstrap-extensions/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ngx-bootstrap-extensions/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ngx-bootstrap-extensions/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngx-bootstrap-extensions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }

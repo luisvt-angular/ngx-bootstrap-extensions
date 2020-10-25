@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import {MatxSidenavMenuController} from "angular-material-extended";
 
 @Component({
   selector: 'ngx-bootstrap-extensions-root',
@@ -6,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ngx-bootstrap-extensions-demo';
+
+  constructor(public menuCtrl: MatxSidenavMenuController) {}
+
 }

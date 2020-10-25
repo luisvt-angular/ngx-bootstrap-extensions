@@ -1,31 +1,40 @@
-import { TestBed } from '@angular/core/testing';
+import { LayoutModule } from '@angular/cdk/layout';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
       declarations: [AppComponent],
+      imports: [
+        NoopAnimationsModule,
+        LayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatSidenavModule,
+        MatToolbarModule,
+      ]
     }).compileComponents();
-  });
+  }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'ngx-bootstrap-extensions-demo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngx-bootstrap-extensions-demo');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'Welcome to ngx-bootstrap-extensions-demo!'
-    );
+  });
+
+  it('should compile', () => {
+    expect(component).toBeTruthy();
   });
 });
